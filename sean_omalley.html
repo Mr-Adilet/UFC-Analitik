@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шон О'Мэлли - Боец</title>
+    <link rel="stylesheet" href="sean_omalley.css">
+    <style>
+
+        .container1 {
+            display: flex;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .right {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            padding-left: 20px;
+            margin: 10px 10px 10px 10px;
+        }
+        .record {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .record div {
+            background-color: #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            min-width: 100px;
+            text-align: center;
+            margin: 100px 10px 10px 10px;
+        }
+        .chart {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #eee;
+            border-radius: 5px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="Index.html" class="navbar-brand">UFC</a>
+                <div class="navbar-wrap">
+                    <ul class="navbar-menu">
+                        <li><a href="sab.html">События</a></li>
+                        <li><a href="sports.html">Спортсмены</a></li>
+                        <li><a href="boi.html">Бои</a></li>
+                    </ul>
+                </div>
+                <div class="search-form">
+                    <form id="search-form">
+                        <input type="text" placeholder="Search..." id="search-input">
+                        <input type="submit" value="Поиск">
+                        <div id="suggestions" class="suggestions"></div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container1">
+        <div class="left">
+            <img src="https://fightingtomatoes.com/images/fighters/SeanOMalley.jpg" 
+                 style="max-height:220px; border-radius:10px;" 
+                 alt="Шон О'Мэлли" 
+                 title="Изображение Шона О'Мэлли">
+        </div>
+        <div class="right">
+            <div class="record">
+                <div>Всего боев: 19</div>
+                <div>Победы: 18</div>
+                <div>Поражения: 1</div>
+                <div>Ничьи: 0</div>
+            </div>
+                <div class="dia" id="donut_single" style="width: 300px; height: 300px;"></div>
+        </div>
+    </div>
+
+    <div class="fights">
+        <h2>Список боев</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Соперник</th>
+                    <th>Результат</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10.03.2023</td>
+                    <td>Джон Доу</td>
+                    <td>Победа</td>
+                </tr>
+                <tr>
+                    <td>15.08.2022</td>
+                    <td>Майкл Смит</td>
+                    <td>Поражение</td>
+                </tr>
+                <tr>
+                    <td>22.11.2021</td>
+                    <td>Джек Джексон</td>
+                    <td>Победа</td>
+                </tr>
+                <!-- Добавьте другие бои по мере необходимости -->
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <h1>&copy Мырзабеков Адилет</h1>
+        <h2>ТОСВТ-9-2-21</h2>
+    </footer>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <script type="text/javascript">
+     google.load("visualization", "1", {packages:["corechart"]});
+     google.setOnLoadCallback(drawChart);
+     function drawChart() {
+       var data = google.visualization.arrayToDataTable([
+         ['CMS', 'Сайты на базе систем управления контентом'],
+         ['Побед',     18],
+         ['Порожения',     1],
+         ['Ничья',     0],
+       ]);
+       var options = {
+       title: 'Статистика',
+            pieHole: 0,
+         pieSliceTextStyle: {
+           color: 'black',
+         },
+         legend: 'none'
+       };
+       var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+       chart.draw(data, options);
+     }
+   </script>
+</body>
+</html>

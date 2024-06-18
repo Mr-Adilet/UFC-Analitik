@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFC Analytics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s, padding 0.3s;
+        }
+        header.scrolled {
+            background-color: #333;
+            padding: 5px 20px;
+        }
+        header img {
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        header img:hover {
+            transform: scale(1.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ddd;
+        }
+        .content {
+            padding: 100px 20px 20px 20px; /* Adjusted for fixed header */
+        }
+        .video-container, .news-container {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .video-container iframe, .news-container iframe {
+            width: 100%;
+            height: 400px;
+        }
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            width: 30%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <a href="index.html">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/UFC_Logo.png" alt="UFC Logo">
+        </a>
+        <nav>
+            <a href="#events">События</a>
+            <a href="#rankings">Рейтинг бойцов</a>
+            <a href="#search">Поиск бойцов</a>
+        </nav>
+    </header>
+    <main class="content">
+        <section class="video-container" id="videos">
+            <h2>Видео</h2>
+            <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section class="news-container" id="news">
+            <h2>Новости</h2>
+            <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
+        <section class="cards-container" id="events">
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Бой 1">
+                <h3>Бой 1</h3>
+                <p>Дата: 10 июля 2024</p>
+                <p>Боец 1 vs Боец 2</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Бой 2">
+                <h3>Бой 2</h3>
+                <p>Дата: 20 июля 2024</p>
+                <p>Боец 3 vs Боец 4</p>
+            </div>
+            <div class="card">
+                <img src="https://via.placeholder.com/300x200" alt="Бой 3">
+                <h3>Бой 3</h3>
+                <p>Дата: 30 июля 2024</p>
+                <p>Боец 5 vs Боец 6</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        Мырзабеков Адилет ТОСВТ-9-2-21
+    </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Function to check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to add 'visible' class to elements in the viewport
+        function addVisibleClass() {
+            const elements = document.querySelectorAll('.video-container, .news-container');
+            elements.forEach(element => {
+                if (isInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Run on scroll and on initial load
+        window.addEventListener('scroll', addVisibleClass);
+        window.addEventListener('load', addVisibleClass);
+    </script>
+</body>
+</html>

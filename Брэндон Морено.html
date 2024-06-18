@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карточка бойца - Брэндон Морено</title>
+    <link rel="stylesheet" href="Брэндон Морено.css">
+    <script src="Брэндон_Морено.Js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="navbar-brand">UFC</a>
+                <div class="navbar-wrap">
+                    <ul class="navbar-menu">
+                        <li><a href="sab.html">События</a></li>
+                        <li><a href="sports.html">Спортсмены</a></li>
+                        <li><a href="boi.html">Бои</a></li>
+                    </ul>
+                </div>
+                <div class="search-form">
+                    <form action="sports.html">
+                        <input type="text" placeholder="Search...">
+                        <input type="submit" value="Поиск">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="statistics">
+            <div class="stats-container">
+                <div class="stat fade-in">
+                    <h3>Победы</h3>
+                    <p>21</p>
+                </div>
+                <div class="stat fade-in">
+                    <h3>Поражения</h3>
+                    <p>6</p>
+                </div>
+                <div class="stat fade-in">
+                    <h3>Ничьи</h3>
+                    <p>2</p>
+                </div>
+                <div class="stat fade-in">
+                    <h3>Нокауты</h3>
+                    <p>5</p>
+                </div>
+                <div class="stat fade-in">
+                    <h3>Сабмишены</h3>
+                    <p>11</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="charts">
+            <h2>Графики и Диаграммы</h2>
+            <div class="chart-container">
+                <canvas id="winLossChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="methodChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 UFC Аналитика. Все права защищены.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
